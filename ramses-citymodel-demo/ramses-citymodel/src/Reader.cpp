@@ -687,6 +687,10 @@ CitymodelScene* Reader::readScene(TileResourceContainer& resourceContainer)
     void* object = readObject(resourceContainer);
     scene->setCarsor(static_cast<ramses::Node*>(object));
 
+    m_sceneLock.lock();
+    m_citymodel.getRamsesScene().createTransformationDataProvider(*static_cast<ramses::Node*>(object), 111u);
+    m_sceneLock.unlock();
+
     readAnimationPath(scene->getAnimationPath());
     readNames(scene->getNames());
     readNamePoints(scene->getNamePoints());
