@@ -6,7 +6,7 @@
 #  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 #  -------------------------------------------------------------------------
  
- file(GLOB filesWithPath *.frag *.vert *.rex *.png *.ttf)
+ file(GLOB filesWithPath *.frag *.vert *.rex *.png *.ttf *.ramres *.ramses)
  FOREACH(fileWithPath ${filesWithPath})
     get_filename_component(file ${fileWithPath} NAME)
     list(APPEND files ${file})
