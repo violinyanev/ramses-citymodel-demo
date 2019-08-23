@@ -10,10 +10,10 @@
 
 std::unique_ptr<ramses::RamsesFrameworkConfig> CitymodelUtils::CreateFrameworkConfig(CitymodelArguments& arguments)
 {
-    std::string logLevelString       = std::to_string(arguments.m_logLevel);
-    const char* frameworkArguments[] = {"", "-l", logLevelString.c_str()};
+    //std::string logLevelString       = std::to_string(arguments.m_logLevel);
+    const char* frameworkArguments[] = {""};
 
-    std::unique_ptr<ramses::RamsesFrameworkConfig> frameworkConfig(new ramses::RamsesFrameworkConfig(3, frameworkArguments));
+    std::unique_ptr<ramses::RamsesFrameworkConfig> frameworkConfig(new ramses::RamsesFrameworkConfig(1, frameworkArguments));
     frameworkConfig->setRequestedRamsesShellType(ramses::ERamsesShellType_Console);
     frameworkConfig->setInterfaceSelectionIPForTCPCommunication(arguments.m_myIp.c_str());
     frameworkConfig->setDaemonIPForTCPCommunication(arguments.m_daemonIp.c_str());
