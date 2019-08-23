@@ -38,7 +38,7 @@ NamingManager::NamingManager(ramses::RamsesClient& client,
     , m_fontInstance(ramses::InvalidFontInstanceId)
     , m_textCache(scene, m_fontRegistry, 1024u, 1024u)
 {
-    m_renderGroup = m_scene.createRenderGroup();
+    m_renderGroup = m_scene.createRenderGroup("names");
     renderPass.addRenderGroup(*m_renderGroup, 1);
 
     m_camera = createOrthoCamera(width, height, fovy);

@@ -161,7 +161,7 @@ void ImageBox::createGeometry(ramses::TextureSampler& textureSampler,
     appearance.setInputTexture(textureInput, textureSampler);
     appearance.setCullingMode(ramses::ECullMode_Disabled);
 
-    ramses::MeshNode& meshNode = *scene.createMeshNode();
+    ramses::MeshNode& meshNode = *scene.createMeshNode("Image");
     m_sceneObjects.push_back(&meshNode);
     meshNode.setAppearance(appearance);
     meshNode.setGeometryBinding(geometry);

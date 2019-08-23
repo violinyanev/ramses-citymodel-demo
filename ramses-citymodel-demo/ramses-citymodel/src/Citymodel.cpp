@@ -88,7 +88,7 @@ void Citymodel::init()
     m_renderPass->setClearFlags(ramses::EClearFlags_None);
     m_renderPass->setCamera(*m_camera);
 
-    m_renderGroup = m_ramsesScene->createRenderGroup();
+    m_renderGroup = m_ramsesScene->createRenderGroup("main group");
     assert(m_renderGroup != NULL);
     m_renderPass->addRenderGroup(*m_renderGroup);
 
@@ -105,10 +105,10 @@ void Citymodel::init()
     createEffects();
     createMarkerGeometry();
 
-    m_rootCameraTranslate = m_ramsesScene->createNode();
+    m_rootCameraTranslate = m_ramsesScene->createNode("root cam translate");
 
-    m_cameraRotate    = m_ramsesScene->createNode();
-    m_cameraTranslate = m_ramsesScene->createNode();
+    m_cameraRotate    = m_ramsesScene->createNode("cam rotate");
+    m_cameraTranslate = m_ramsesScene->createNode("cam translate");
 
     m_cameraTranslate->addChild(*m_cameraRotate);
     m_cameraRotate->addChild(*m_rootCameraTranslate);
@@ -182,10 +182,10 @@ void Citymodel::readScene()
 
     const float f = 0.5f;
 
-    m_carsor              = m_ramsesScene->createNode();
-    m_carsorTranslation   = m_ramsesScene->createNode();
-    m_carsorRotation      = m_ramsesScene->createNode();
-    ramses::Node* scaler = m_ramsesScene->createNode();
+    m_carsor              = m_ramsesScene->createNode("carsor");
+    m_carsorTranslation   = m_ramsesScene->createNode("carsor T");
+    m_carsorRotation      = m_ramsesScene->createNode("carsor R");
+    ramses::Node* scaler = m_ramsesScene->createNode("carsor scale");
     scaler->setScaling(f, f, f);
 
     m_carsor->addChild(*m_carsorTranslation);
@@ -749,7 +749,7 @@ void Citymodel::createMarkerGeometry()
 void Citymodel::createMarker(const Vector3& position, float size)
 {
     ramses::Appearance* appearance = m_ramsesScene->createAppearance(*m_markerEffect);
-    ramses::MeshNode*   meshNode   = m_ramsesScene->createMeshNode();
+    ramses::MeshNode*   meshNode   = m_ramsesScene->createMeshNode("marker");
     meshNode->setAppearance(*appearance);
     meshNode->setGeometryBinding(*m_markerGeometry);
     m_renderGroup->addMeshNode(*meshNode, 4);

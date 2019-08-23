@@ -383,7 +383,7 @@ void Reader::readNode(ramses::Node* node, TileResourceContainer& resourceContain
 ramses::Node* Reader::readMeshNode(TileResourceContainer& resourceContainer)
 {
     m_sceneLock.lock();
-    ramses::MeshNode* mesh = m_citymodel.getRamsesScene().createMeshNode();
+    ramses::MeshNode* mesh = m_citymodel.getRamsesScene().createMeshNode("tile mesh");
     m_sceneLock.unlock();
     resourceContainer.addSceneObject(mesh);
 

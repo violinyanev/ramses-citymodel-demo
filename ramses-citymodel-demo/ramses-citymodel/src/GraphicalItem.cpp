@@ -34,7 +34,7 @@ GraphicalItem::~GraphicalItem()
 
 void GraphicalItem::initOutputBuffer(uint32_t width, uint32_t height, int32_t renderOrder)
 {
-    m_renderGroup = m_scene.createRenderGroup();
+    m_renderGroup = m_scene.createRenderGroup("graphical item");
     m_sceneObjects.push_back(m_renderGroup);
 
     m_camera = m_scene.createOrthographicCamera();

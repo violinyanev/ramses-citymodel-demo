@@ -26,7 +26,7 @@ void CitymodelGUIOverlay::init(const std::string& resourceFilePath,
     m_camera->setViewport(0, 0, m_windowSize.getX(), m_windowSize.getY());
 
     m_renderPass->setCamera(*m_camera);
-    m_guiRenderGroup = m_ramsesScene->createRenderGroup();
+    m_guiRenderGroup = m_ramsesScene->createRenderGroup("gui overlay group");
     m_renderPass->addRenderGroup(*m_guiRenderGroup);
 
     createGUIEffects(resourceFilePath);
